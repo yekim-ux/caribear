@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lattice Bear MINI — CARIBEAR®</title>
+<meta name="description" content="CARIBEAR® 래티스 베어 MINI. 40×40×58MM · 12G. TPE 실리콘 보로노이 래티스, 파스텔 8셰이드.">
+<meta name="theme-color" content="#FBF7F4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/caribear.css">
+<link rel="stylesheet" href="assets/css/caribear-pages.css">
+</head>
+<body>
+
+<a class="sr" href="#main">본문으로 건너뛰기</a>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="wordmark wordmark--accent" href="index.html">CARIBEAR<i>.</i></a>
+
+    <nav class="nav__links" id="nav-links" aria-label="주 메뉴">
+      <a href="index.html#lineup">SHOP</a><span>•</span>
+      <a href="keyring-basic.html">KEYRING</a><span>•</span>
+      <a href="index.html#moods">SHADES</a><span>•</span>
+      <a href="index.html#journal">JOURNAL</a>
+    </nav>
+
+    <div class="nav__right">
+      <a class="mono hide-sm" href="#" style="color:var(--text)">SEARCH</a>
+      <a class="mono hide-sm" href="#" style="color:var(--text)">ACCOUNT</a>
+      <a class="mono" href="checkout.html" style="color:var(--text)">CART(1)</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="메뉴 열기">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+  <nav class="crumbs" aria-label="위치">
+    <a href="index.html">HOME</a> <span>/</span>
+    <a href="index.html#lineup">SHOP</a> <span>/</span>
+    <a href="keyring-mini.html">LATTICE BEAR MINI</a> <span>/</span>
+    <span aria-current="page" id="crumb-color">GREY</span>
+  </nav>
+
+  <!-- ================= PDP ================= -->
+  <div class="pdp">
+
+    <!-- 갤러리 -->
+    <div>
+      <div class="shot gallery__main">
+        <img class="bear" id="pdp-main" src="assets/img/bear-grey.webp"
+             width="620" height="1100" fetchpriority="high" decoding="async"
+             alt="래티스 베어 참 — 그레이">
+      </div>
+      <div class="gallery__thumbs" id="pdp-thumbs"></div>
+
+      <figure class="size-figure">
+        <img src="assets/img/lineup-size.webp" width="1069" height="1100" loading="lazy" decoding="async"
+             alt="기본 사이즈와 미니 사이즈를 나란히 놓고 비교한 컷">
+        <figcaption class="mono">왼쪽 BASIC 65×65×95MM · 오른쪽 MINI 40×40×58MM</figcaption>
+      </figure>
+
+    </div>
+
+    <!-- 정보 -->
+    <div class="pdp__info">
+      <div>
+        <p class="eyebrow">EDITION 01 · MINI</p>
+        <h1 style="margin-top:12px">Lattice Bear MINI</h1>
+        <p class="pdp__variant"><span id="variant-line">GREY / 01</span> · FINISH <span id="variant-mood">MISTY</span> · 40×40×58MM · 12G</p>
+      </div>
+
+      <div class="price-row">
+        <span class="price" id="price-now">₩24,000</span>
+      </div>
+
+      <div class="rating">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span>4.9 (2,847)</span>
+        <span class="sr">5점 만점에 4.9점, 리뷰 2,847건</span>
+      </div>
+
+      <p style="color:var(--text-dim)">형태는 그대로, 크기만 62%. 파우치·에어팟 케이스·키홀더에 부담 없이 달 수 있습니다.</p>
+
+      <div>
+        <p class="opt__label"><b>SIZE</b> <em>· 40×40×58MM · 12G</em></p>
+        <div class="sizes" id="pdp-sizes" role="group" aria-label="제품 사이즈"></div>
+      </div>
+
+      <div>
+        <p class="opt__label"><b>SHADE</b> <em>· 8 PASTELS</em></p>
+        <div class="swatches" id="pdp-swatches" role="group" aria-label="제품 컬러"></div>
+      </div>
+
+      <div>
+        <p class="opt__label"><b>QUANTITY</b></p>
+        <div class="qty">
+          <button type="button" id="qty-minus" aria-label="수량 줄이기">−</button>
+          <output id="qty" for="qty-minus qty-plus">1</output>
+          <button type="button" id="qty-plus" aria-label="수량 늘리기">+</button>
+        </div>
+      </div>
+
+      <a class="btn btn--primary btn--lg btn--block" href="checkout.html" id="add-to-cart">
+        Add to cart · <span id="cta-price">₩38,000</span>
+      </a>
+      <button class="btn btn--outline btn--lg btn--block" type="button">Add to wishlist <span aria-hidden="true">♡</span></button>
+
+      <ul class="trust">
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M2 7h11v8H2z"/><path d="M13 10h4l4 3v2h-8z"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>
+          <span>FREE SHIPPING</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 11-2.6-5.9"/><path d="M20 3v5h-5"/></svg>
+          <span>30-DAY RETURN</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 13.5s1.2 2 3.5 2 3.5-2 3.5-2"/><circle cx="9" cy="9.5" r=".6"/><circle cx="15" cy="9.5" r=".6"/></svg>
+          <span>MADE IN KOREA</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= SPEC ================= -->
+  <section class="specs">
+    <ul class="specs__strip">
+      <li>
+        <svg viewBox="0 0 48 48"><path d="M6 14l10-6 10 6-2 12-9 6-9-6z"/><path d="M26 20l10-6 8 5-2 11-8 5-8-5z"/><path d="M12 26l8 5 6-4"/></svg>
+        <div><b>SOFT LATTICE</b><small>squishy voronoi<br>mesh structure</small></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="9"/><circle cx="24" cy="10" r="3"/><circle cx="38" cy="24" r="3"/><circle cx="24" cy="38" r="3"/><circle cx="10" cy="24" r="3"/></svg>
+        <div><b>SKIN-SOFT SILICONE</b><small>matte touch<br>high durability</small></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48"><path d="M24 6l16 9v18l-16 9-16-9V15z"/><path d="M24 24l16-9M24 24v18M24 24L8 15"/></svg>
+        <div><b>40×40×58MM · 12G</b><small>perfect charm<br>size &amp; weight</small></div>
+      </li>
+    </ul>
+
+    <h2>SPEC SHEET</h2>
+    <table>
+      <tbody>
+        <tr><th scope="row">MATERIAL</th><td>TPE SILICONE</td></tr>
+        <tr><th scope="row">STRUCTURE</th><td>VORONOI LATTICE</td></tr>
+        <tr><th scope="row">HARDWARE</th><td>STAINLESS 316L RING</td></tr>
+        <tr><th scope="row">SIZE</th><td>40×40×58MM · 12G</td></tr>
+        <tr><th scope="row">ORIGIN</th><td>MADE IN KOREA</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ================= RELATED ================= -->
+  <section style="padding-bottom:clamp(40px,6vw,64px)">
+    <div class="section__bar"><h2>RELATED PRODUCTS</h2></div>
+    <div class="cards" id="related"></div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <section style="padding-bottom:clamp(48px,7vw,88px)">
+    <div class="section__bar">
+      <h2>REVIEWS</h2>
+      <a class="more" href="#">VIEW ALL REVIEWS →</a>
+    </div>
+
+    <div class="reviews">
+      <article class="review">
+        <div class="review__top">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span class="mono" style="color:var(--text)">5.0</span>
+        </div>
+        <div class="review__who"><span>minji_lee</span> <span>May 12, 2026</span></div>
+        <p>래티스 결이 사진보다 훨씬 예뻐요. 그레이가 은은해서 어디에 달아도 잘 어울리고, 촉감이 말랑말랑해서 계속 만지게 돼요.</p>
+        <div class="tags"><span class="tag">FINISH MISTY</span><span class="tag">GREY</span></div>
+      </article>
+
+      <article class="review">
+        <div class="review__top">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span class="mono" style="color:var(--text)">4.9</span>
+        </div>
+        <div class="review__who"><span>lostboy_kr</span> <span>May 8, 2026</span></div>
+        <p>가볍고 말랑해서 파우치에 달아 두기 딱 좋아요. 스카이 셰이드 톤이 화면이랑 똑같이 왔어요.</p>
+        <div class="tags"><span class="tag">FINISH CLEAR</span><span class="tag">SKY</span></div>
+      </article>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__cols">
+      <div>
+        <h4>SHOP</h4>
+        <ul>
+          <li><a href="index.html#lineup">ALL PRODUCTS</a></li>
+          <li><a href="keyring-basic.html">BASIC KEYRING</a></li>
+          <li><a href="keyring-mini.html">MINI KEYRING</a></li>
+          <li><a href="sticker.html">STICKER PACK</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>SHADES</h4>
+        <ul>
+          <li><a href="keyring-basic.html?color=grey">SHADE MISTY</a></li>
+          <li><a href="keyring-basic.html?color=blush">SHADE DEWY</a></li>
+          <li><a href="keyring-basic.html?color=peach">SHADE GLOW</a></li>
+          <li><a href="keyring-basic.html?color=mint">SHADE FRESH</a></li>
+          <li><a href="keyring-basic.html?color=lilac">SHADE AIRY</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ABOUT</h4>
+        <ul>
+          <li><a href="#">OUR STORY</a></li>
+          <li><a href="#">DESIGN PROCESS</a></li>
+          <li><a href="#">SUSTAINABILITY</a></li>
+          <li><a href="#">STOCKISTS</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>SUPPORT</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">SHIPPING</a></li>
+          <li><a href="#">RETURNS</a></li>
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__base">
+      <span class="mono">© 2026 CARIBEAR · SEOUL, KR</span>
+      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+        <div class="social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.3a6.5 6.5 0 100 13 6.5 6.5 0 000-13zm0 2.3a4.2 4.2 0 110 8.4 4.2 4.2 0 010-8.4zm6.8-2.6a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.5 3c.3 2.2 1.6 3.6 3.8 3.8v2.5c-1.4.1-2.7-.3-3.9-1.1v5.4c0 4.6-4.4 7.1-8.1 5.2-2.4-1.2-3.4-4.1-2.5-6.6.9-2.4 3.4-3.8 6-3.3v2.7c-1.7-.5-3.2.6-3.2 2.2 0 1.4 1.2 2.5 2.6 2.4 1.4-.1 2.4-1.2 2.4-2.7V3h2.9z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M3 3h4.2l4.4 6 5-6H20l-6.6 7.9L21 21h-4.2l-4.8-6.5L6.4 21H4l7-8.4L3 3z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 12s0-3.2-.4-4.7c-.2-.9-.9-1.5-1.7-1.7C18.4 5.2 12 5.2 12 5.2s-6.4 0-7.9.4c-.8.2-1.5.8-1.7 1.7C2 8.8 2 12 2 12s0 3.2.4 4.7c.2.9.9 1.5 1.7 1.7 1.5.4 7.9.4 7.9.4s6.4 0 7.9-.4c.8-.2 1.5-.8 1.7-1.7.4-1.5.4-4.7.4-4.7zM10 15.2V8.8l5.5 3.2-5.5 3.2z"/></svg></a>
+        </div>
+        <span class="footer__mark" style="font-size:clamp(2rem,5vw,3rem)">CARIBEAR<i>.</i></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/caribear-site.js"></script>
+<script src="assets/js/caribear-pdp.js"></script>
+<script>CARIBEAR.initPDP({ size: 'mini' });</script>
+</body>
+</html>

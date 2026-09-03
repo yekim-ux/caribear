@@ -1,0 +1,158 @@
+/* ============================================================
+   CARIBEAR — 사이트 공통 스타일
+   무드: MILK LAB — 코스메틱 클린 / 퓨어 / 큐트
+   구조 정본: LANDING_KIT.md §5 (그리드·타입 스케일은 그대로, 색·폰트·라운드만 교체)
+   ============================================================ */
+:root{
+  /* ---- 무드 팔레트 ---- */
+  --milk:#FFFFFF;      --cream:#FBF7F4;     --cream-2:#F6EFEA;   --cream-3:#F0E6DF;
+  --blush-100:#FFF3F5; --blush-200:#FFE1E8; --blush-300:#FFB6C7;
+  --blush-400:#FF9EB5; --blush-500:#F2789B; --blush-600:#C4405F;
+  --ink-900:#2B2422;   --ink-700:#4B403C;   --ink-600:#6F625C;
+  --ink-400:#7C6F69;   --ink-200:#EADFD8;   --ink-100:#F3EBE5;
+
+  /* ---- 제품 8셰이드 (caribear-site.js COLORS · blender_render_bear.py PRODUCT 와 같은 값) ---- */
+  --shade-grey:#CFCAC8;   --shade-blush:#FFC2CE;
+  --shade-peach:#FFC49B;  --shade-butter:#FFE49A;
+  --shade-mint:#A9E0C8;   --shade-sky:#A9D2F2;
+  --shade-lilac:#CBBCF0;  --shade-rose:#F58BA5;
+
+  /* ---- 역할 토큰 ---- */
+  --bg:var(--cream); --surface:var(--milk); --surface-2:var(--cream-2);
+  --border:var(--ink-200);
+  --text:var(--ink-900); --text-dim:var(--ink-600); --text-faint:var(--ink-400);
+  --accent:var(--blush-400);          /* 면·테두리·글로우 */
+  --accent-ink:var(--blush-600);      /* 글자에 쓰는 액센트 (본문 대비 4.6:1) */
+  --accent-soft:var(--blush-200);
+  --accent-hover:var(--blush-300);
+  --accent-rgb:255,158,181;           /* 글로우·바닥 그리드용 */
+  --on-accent:var(--ink-900);
+  --focus-ring:var(--blush-500);
+
+  /* ---- 라운드 · 그림자 (무드의 절반) ---- */
+  --r-sm:10px; --r:16px; --r-lg:26px; --r-pill:999px;
+  --nav-h:88px;                       /* .nav 실제 높이. sticky 오프셋의 기준 */
+  --shadow-soft:0 10px 30px rgba(196,158,148,.16);
+  --shadow-card:0 14px 40px rgba(196,158,148,.20);
+
+  /* §13 반응형 그리드 */
+  --grid-cols:4; --grid-gutter:16px; --grid-margin:20px;
+  --content-max:100%; --baseline:8px;
+
+  /* §14 타입 스케일 */
+  --font-display:'Poppins',system-ui,sans-serif;
+  --font-body:'DM Sans',system-ui,sans-serif;
+  --font-mono:'DM Mono',ui-monospace,monospace;
+  --fs-display-1:clamp(2.75rem,1.1rem + 7.4vw,6.5rem);
+  --fs-display-2:clamp(2rem,1.2rem + 3.4vw,3.5rem);
+  --fs-h3:clamp(1.25rem,1rem + 1.2vw,2rem);
+  --fs-body:.9375rem; --fs-caption:.8125rem; --fs-meta:.75rem;
+  --ls-logo:-.02em; --ls-tight:-.02em; --ls-meta:.14em;
+}
+@media(min-width:768px){ :root{ --grid-cols:8;  --grid-gutter:20px; --grid-margin:40px; } }
+@media(min-width:1200px){:root{ --grid-cols:12; --grid-gutter:24px; --grid-margin:48px; } }
+@media(min-width:1440px){:root{ --grid-margin:84px; --content-max:1272px; } }
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:var(--font-body); font-size:var(--fs-body); line-height:1.65;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img,canvas,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit;background:none;border:0}
+:where(a,button,input,select,[tabindex]):focus-visible{outline:2px solid var(--focus-ring);outline-offset:3px;border-radius:var(--r-sm)}
+
+.wrap{width:100%;max-width:var(--content-max);margin-inline:auto;padding-inline:var(--grid-margin)}
+.grid{display:grid;grid-template-columns:repeat(var(--grid-cols),minmax(0,1fr));gap:var(--grid-gutter)}
+.mono{font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:var(--ls-meta);
+      text-transform:uppercase;color:var(--text-faint)}
+.accent{color:var(--accent-ink)}
+.dot{color:var(--accent-ink)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- 워드마크 ---------- */
+.wordmark{font-family:var(--font-display);font-weight:600;font-size:1.3rem;
+          letter-spacing:var(--ls-logo);line-height:1}
+.wordmark i{font-style:normal;color:var(--accent-ink)}
+.wordmark--accent{color:var(--accent-ink)}
+
+/* ---------- 상단 내비 ---------- */
+.nav{position:sticky;top:0;z-index:60;border-bottom:1px solid var(--border);
+     background:color-mix(in srgb,var(--cream) 86%,transparent);backdrop-filter:blur(14px)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;gap:16px;
+         min-height:64px;padding-block:12px}
+.nav__links{display:flex;align-items:center;gap:14px}
+.nav__links a{font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:var(--ls-meta);
+              text-transform:uppercase;color:var(--text);transition:color .15s}
+.nav__links a:hover{color:var(--accent-ink)}
+.nav__links span{color:var(--accent);font-size:.6rem}
+.nav__right{display:flex;align-items:center;gap:18px}
+.nav__right .icon{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;
+                  stroke-linecap:round;stroke-linejoin:round}
+.nav__toggle{display:none;padding:8px}
+.nav__toggle svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round}
+@media(max-width:1023px){
+  .nav__links{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:flex-start;
+    gap:0;padding:8px var(--grid-margin) 20px;background:var(--milk);
+    border-bottom:1px solid var(--border);box-shadow:var(--shadow-soft);display:none}
+  .nav__links[data-open="true"]{display:flex}
+  .nav__links a{width:100%;padding:14px 0;border-bottom:1px solid var(--ink-100)}
+  .nav__links span{display:none}
+  .nav__toggle{display:block}
+  .nav__right .hide-sm{display:none}
+  .nav__right{gap:14px}
+}
+
+/* ---------- 버튼 ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+     padding:15px 28px;border-radius:var(--r-pill);
+     font-family:var(--font-display);font-weight:600;font-size:.9375rem;
+     letter-spacing:.005em;cursor:pointer;
+     transition:background .15s,color .15s,border-color .15s,transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn--primary{background:var(--accent);color:var(--on-accent);box-shadow:var(--shadow-soft)}
+.btn--primary:hover{background:var(--accent-hover)}
+.btn--primary:active{background:var(--blush-500);color:var(--milk);transform:none}
+.btn--ghost{border:1px solid var(--border);color:var(--text);background:var(--milk)}
+.btn--ghost:hover{border-color:var(--accent);color:var(--accent-ink)}
+.btn--outline{border:1px solid var(--accent);color:var(--accent-ink);background:var(--milk)}
+.btn--outline:hover{background:var(--accent-soft)}
+.btn--block{width:100%}
+.btn--lg{padding:20px 28px;font-size:1rem}
+
+/* ---------- 섹션 헤더 ---------- */
+.section{padding-block:clamp(56px,7vw,96px);border-top:1px solid var(--border)}
+.section__title{font-family:var(--font-display);font-weight:600;
+  letter-spacing:var(--ls-tight);font-size:var(--fs-display-2);line-height:1.08}
+.section__title i{font-style:normal;color:var(--accent-ink)}
+.eyebrow{font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:var(--ls-meta);
+         text-transform:uppercase;color:var(--accent-ink)}
+
+/* ---------- 푸터 ---------- */
+.footer{border-top:1px solid var(--border);padding-block:56px 40px;background:var(--surface-2)}
+.footer__cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 20px}
+@media(min-width:768px){.footer__cols{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.footer h4{font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:var(--ls-meta);
+           text-transform:uppercase;color:var(--text);margin-bottom:16px;font-weight:500}
+.footer ul{list-style:none;display:grid;gap:10px}
+.footer li a{font-size:var(--fs-caption);color:var(--text-dim)}
+.footer li a:hover{color:var(--accent-ink)}
+.footer__mark{font-family:var(--font-display);font-weight:600;
+  letter-spacing:var(--ls-logo);font-size:clamp(2.5rem,8vw,4.5rem);color:#EBD8D6;line-height:1}
+.footer__mark i{font-style:normal;color:var(--blush-300)}
+.footer__base{margin-top:40px;padding-top:24px;border-top:1px solid var(--border);
+  display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.social{display:flex;gap:14px}
+.social a{width:36px;height:36px;border-radius:var(--r-pill);display:grid;place-items:center;
+  border:1px solid var(--border);background:var(--milk);color:var(--text-dim);transition:.15s}
+.social a:hover{border-color:var(--accent);color:var(--accent-ink)}
+.social svg{width:16px;height:16px;fill:currentColor}
+
+/* ---------- 저모션 ---------- */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}

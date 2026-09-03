@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CARIBEAR. — HERO PROTOTYPE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CARIBEAR — 토큰 (CARIBEAR_Web_Spec_v1.1.pdf §12 복사용 토큰)
+   ============================================================ */
+:root{
+  --cari-ink:#0A0A0A; --cari-white:#FFFFFF; --cari-pink:#FF2E88;
+  --pink-300:#FF8FBF; --pink-400:#FF5C9F; --pink-500:#FF2E88;
+  --pink-600:#E01E76; --pink-700:#D6006B;
+  --ink-800:#131113; --ink-700:#1C191C; --ink-600:#2A252A;
+  --ink-500:#4A434A; --ink-300:#8C838A; --ink-200:#C9C2C7;
+  --ink-100:#E8E3E6; --paper-soft:#F7F5F6;
+
+  --product-black:#0A0A0A;  --product-red:#FF3B30;
+  --product-orange:#FF8A00; --product-yellow:#FFD60A;
+  --product-green:#34C759;  --product-blue:#0A84FF;
+  --product-purple:#8B5CF6; --product-pink:#FF2E88;
+
+  --bg:var(--cari-ink); --surface:var(--ink-800); --border:var(--ink-600);
+  --text:#F4F1F3; --text-dim:#A79FA4; --text-faint:var(--ink-300);
+  --accent:var(--pink-500); --accent-hover:var(--pink-400);
+  --on-accent:var(--cari-ink); --focus-ring:var(--pink-500);
+
+  /* §13 반응형 그리드 */
+  --grid-cols:4; --grid-gutter:16px; --grid-margin:20px;
+  --content-max:100%; --baseline:8px;
+
+  /* §14 웹 타입 스케일 */
+  --font-display:'Space Grotesk',Inter,sans-serif;
+  --font-body:Inter,'Pretendard',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --fs-display-1:clamp(2.75rem,1.2rem + 6.2vw,6rem);
+  --fs-body:1rem; --fs-caption:.875rem; --fs-meta:.75rem;
+  --ls-logo:-.03em; --ls-tight:-.025em; --ls-meta:.14em;
+}
+@media(min-width:768px){ :root{ --grid-cols:8;  --grid-gutter:20px; --grid-margin:40px; } }
+@media(min-width:1200px){:root{ --grid-cols:12; --grid-gutter:24px; --grid-margin:48px; } }
+@media(min-width:1440px){:root{ --grid-margin:84px; --content-max:1272px; } }
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:var(--font-body); font-size:var(--fs-body); line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.grid{
+  display:grid; grid-template-columns:repeat(var(--grid-cols),minmax(0,1fr));
+  gap:var(--grid-gutter); max-width:var(--content-max);
+  margin-inline:auto; padding-inline:var(--grid-margin);
+}
+.mono{font-family:var(--font-mono);font-size:var(--fs-meta);
+      letter-spacing:var(--ls-meta);text-transform:uppercase;color:var(--text-faint)}
+:where(a,button,[tabindex]):focus-visible{outline:2px solid var(--focus-ring);outline-offset:3px}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:fixed; inset:0 0 auto 0; z-index:40; height:64px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding-inline:var(--grid-margin);
+  border-bottom:1px solid var(--border);
+  background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:blur(12px);
+}
+.wordmark{font-family:var(--font-display);font-weight:700;font-size:1.125rem;
+          letter-spacing:var(--ls-logo);color:var(--text)}
+.wordmark i{font-style:normal;color:var(--accent)}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--text-dim);text-decoration:none}
+.nav-links a:hover{color:var(--text)}
+@media(max-width:767px){.nav-links .hide-sm{display:none}}
+
+/* ---------- HERO ---------- */
+/* 400vh 트랙 안에서 sticky 100vh — 스크롤이 8컬러를 순차 통과시킨다 */
+.hero-track{height:400vh;position:relative}
+.hero{
+  position:sticky; top:0; height:100svh; overflow:hidden;
+  display:grid; grid-template-rows:1fr auto;
+}
+/* 히어로 뒤에만 45° 핑크 사선, 아주 낮은 불투명도 */
+.hero::before{
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(45deg,
+    transparent 0 22px, color-mix(in srgb,var(--accent) 100%,transparent) 22px 23px);
+  opacity:.045;
+}
+#bear{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:pan-y}
+
+.hero-copy{
+  position:relative; z-index:10; align-self:center;
+  width:100%; pointer-events:none;
+}
+.hero-copy > .col{grid-column:1/-1; pointer-events:auto}
+@media(min-width:768px){ .hero-copy > .col{grid-column:1/span 6} }
+@media(min-width:1200px){.hero-copy > .col{grid-column:1/span 7} }
+
+.eyebrow{font-family:var(--font-display);font-weight:700;font-size:.75rem;
+         letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+         margin-bottom:16px}
+h1{
+  font-family:var(--font-display); font-weight:700; text-transform:uppercase;
+  font-size:var(--fs-display-1); line-height:.94; letter-spacing:var(--ls-tight);
+  margin-bottom:24px;
+}
+h1 i{font-style:normal;color:var(--accent)}
+.lede{color:var(--text-dim);max-width:34ch;margin-bottom:32px}
+.btn{
+  display:inline-block; padding:16px 28px; border:0;
+  background:var(--accent); color:var(--on-accent);
+  font-family:var(--font-display); font-weight:700; font-size:.875rem;
+  letter-spacing:.04em; text-transform:uppercase; text-decoration:none;
+  cursor:pointer; transition:background .15s;
+}
+.btn:hover{background:var(--accent-hover)}
+.btn:active{background:var(--pink-600)}
+
+/* ---------- 하단 바 · 스와치 + 메타 ---------- */
+.hero-foot{position:relative;z-index:10;padding-bottom:24px}
+.hero-foot .row{
+  grid-column:1/-1; display:flex; align-items:center; justify-content:space-between;
+  gap:16px; padding-top:16px; border-top:1px solid var(--border);
+}
+.swatches{display:flex;gap:8px}
+.swatch{
+  width:28px;height:28px;padding:0;cursor:pointer;background:var(--sw);
+  border:1px solid rgba(255,255,255,.24);   /* §15 errata — BLACK 칩 소실 방지 */
+  transition:transform .15s;
+}
+.swatch:hover{transform:translateY(-2px)}
+.swatch[aria-pressed="true"]{outline:2px solid var(--accent);outline-offset:3px}
+.scroll-cue{display:flex;align-items:center;gap:10px}
+.scroll-cue .bar{width:1px;height:28px;background:var(--border);position:relative;overflow:hidden}
+.scroll-cue .bar::after{
+  content:'';position:absolute;inset:0;background:var(--accent);
+  transform:scaleY(var(--p,0));transform-origin:top;
+}
+@media(max-width:767px){ .hero-foot .row{flex-wrap:wrap} .scroll-cue{order:3;width:100%} }
+
+/* ---------- 다음 섹션 (경계 확인용) ---------- */
+.next{padding:120px 0 200px;border-top:1px solid var(--border)}
+.next h2{grid-column:1/-1;font-family:var(--font-display);font-weight:700;
+         text-transform:uppercase;letter-spacing:var(--ls-tight);
+         font-size:clamp(1.75rem,1rem + 3vw,3.5rem)}
+.next h2 i{font-style:normal;color:var(--accent)}
+.next p{grid-column:1/-1;color:var(--text-dim);max-width:65ch;margin-top:16px}
+
+/* ---------- 저모션 대응 · 정지 프레임 ---------- */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-track{height:100svh}
+  #bear{cursor:default}
+  .swatch{transition:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="wordmark" href="#" style="text-decoration:none">CARIBEAR<i>.</i></a>
+  <div class="nav-links mono">
+    <a href="#" class="hide-sm">SHOP</a>
+    <a href="#" class="hide-sm">DROPS</a>
+    <a href="#" class="hide-sm">ABOUT</a>
+    <a href="#">CART (2)</a>
+  </div>
+</nav>
+
+<div class="hero-track">
+  <header class="hero">
+    <canvas id="bear" aria-label="CARIBEAR 래티스 곰돌이 키링. 드래그해서 돌려보세요."></canvas>
+
+    <div class="hero-copy grid">
+      <div class="col">
+        <p class="eyebrow">DROP 001 — RAINBOW 8</p>
+        <h1>FLEX<br>YOUR<br>MOOD<i>.</i></h1>
+        <p class="lede">Squishy lattice bear keyring, in 8 moods.</p>
+        <a class="btn" href="#">SHOP DROP 001</a>
+      </div>
+    </div>
+
+    <div class="hero-foot grid">
+      <div class="row">
+        <div class="scroll-cue">
+          <span class="bar" id="scrollbar"></span>
+          <span class="mono">SCROLL ↓</span>
+        </div>
+        <div class="swatches" id="swatches" role="group" aria-label="제품 컬러"></div>
+        <span class="mono" id="timecode">00:00 / 00:08</span>
+      </div>
+    </div>
+  </header>
+</div>
+
+<section class="next grid">
+  <h2>OPEN LATTICE<i>.</i></h2>
+  <p>보로노이 오픈 셀 구조 — 불규칙한 다각형 셀이 서로를 지탱한다. 속이 완전히 비어 있어 앞면 너머로 뒷벽이 그대로 비친다. 눌리면 셀이 안으로 접히고, 놓으면 원래 자리로 돌아온다.</p>
+</section>
+
+<script src="assets/js/caribear-bear.js"></script>
+<script>
+(function(){
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touch   = window.matchMedia('(hover: none)').matches;
+
+  /* 8컬러 · 스펙 §12 product colors 순서
+     bear 값은 렌더용 — BLACK은 다크 배경에 묻히므로 ink-500으로 스트럿만 드러낸다 */
+  var COLORS = [
+    { key:'black',  label:'BLACK',  chip:'#0A0A0A', bear:'#4A434A', rim:1.00 },
+    { key:'red',    label:'RED',    chip:'#FF3B30', bear:'#FF3B30', rim:0.80 },
+    { key:'orange', label:'ORANGE', chip:'#FF8A00', bear:'#FF8A00', rim:0.80 },
+    { key:'yellow', label:'YELLOW', chip:'#FFD60A', bear:'#FFD60A', rim:0.80 },
+    { key:'green',  label:'GREEN',  chip:'#34C759', bear:'#34C759', rim:0.80 },
+    { key:'blue',   label:'BLUE',   chip:'#0A84FF', bear:'#0A84FF', rim:0.80 },
+    { key:'purple', label:'PURPLE', chip:'#8B5CF6', bear:'#8B5CF6', rim:0.80 },
+    { key:'pink',   label:'PINK',   chip:'#FF2E88', bear:'#FF2E88', rim:0.80 }
+  ];
+
+  var canvas = document.getElementById('bear');
+  var hero = null;
+
+  /* 형태는 실측 3D 파일에서 뽑은 포인트 클라우드를 비동기로 읽어 온다 */
+  CaribearHero.load(canvas, 'assets/data/bear-form.json', {
+    color: COLORS[5].bear, rim: '#FF2E88', reduced: reduced, touch: touch
+  }).then(function (h) {
+    hero = h;
+    window.caribear = h;      /* 튜닝용 핸들 */
+    h.start();
+    h.setColor(COLORS[pending].bear, COLORS[pending].rim);
+  }).catch(function (err) {
+    console.error(err);
+    document.getElementById('timecode').textContent = 'FORM LOAD FAILED';
+  });
+
+  /* ---- 스와치 ---- */
+  var wrap = document.getElementById('swatches');
+  var buttons = COLORS.map(function(c, i){
+    var b = document.createElement('button');
+    b.className = 'swatch';
+    b.type = 'button';
+    b.style.setProperty('--sw', c.chip);
+    b.setAttribute('aria-label', c.label);
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function(){ select(i, true); });
+    wrap.appendChild(b);
+    return b;
+  });
+
+  var current = -1, pending = 5;
+  function select(i, fromClick){
+    pending = i;
+    if (i === current) return;
+    current = i;
+    if (hero) hero.setColor(COLORS[i].bear, COLORS[i].rim);
+    buttons.forEach(function(b, n){ b.setAttribute('aria-pressed', n === i ? 'true' : 'false'); });
+    if (fromClick){
+      /* 클릭으로 고른 색이 스크롤에 즉시 덮어써지지 않도록 잠깐 잠근다 */
+      lockUntil = performance.now() + 1200;
+    }
+  }
+  var lockUntil = 0;
+  select(5, false);
+
+  /* ---- 스크롤: 컬러 순차 전환 + 스크롤 큐 ---- */
+  var track = document.querySelector('.hero-track');
+  var bar = document.getElementById('scrollbar');
+  var tc = document.getElementById('timecode');
+
+  function onScroll(){
+    var span = track.offsetHeight - window.innerHeight;
+    var p = span > 0 ? Math.min(1, Math.max(0, window.scrollY / span)) : 0;
+    bar.style.setProperty('--p', p.toFixed(3));
+    if (performance.now() > lockUntil){
+      select(Math.min(COLORS.length - 1, Math.floor(p * COLORS.length)), false);
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  /* ---- 타임코드 · 8초 루프 ---- */
+  if (!reduced){
+    setInterval(function(){
+      if (!hero) return;
+      var s = Math.floor((hero.rotY / (Math.PI * 2)) * 8) % 8;
+      if (s < 0) s += 8;
+      tc.textContent = '00:0' + s + ' / 00:08';
+    }, 200);
+  } else {
+    tc.textContent = 'STILL FRAME';
+  }
+})();
+</script>
+</body>
+</html>

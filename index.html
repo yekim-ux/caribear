@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CARIBEAR® — FIND YOUR SHADE.</title>
+<meta name="description" content="말랑한 보로노이 래티스 베어 참. 파스텔 8셰이드, EDITION 01.">
+<meta name="theme-color" content="#FBF7F4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/caribear.css">
+<link rel="stylesheet" href="assets/css/caribear-pages.css">
+</head>
+<body>
+
+<a class="sr" href="#main">본문으로 건너뛰기</a>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="wordmark" href="index.html">CARIBEAR<i>.</i></a>
+
+    <nav class="nav__links" id="nav-links" aria-label="주 메뉴">
+      <a href="index.html#lineup">SHOP</a><span>•</span>
+      <a href="keyring-basic.html">KEYRING</a><span>•</span>
+      <a href="#moods">SHADES</a><span>•</span>
+      <a href="#journal">JOURNAL</a>
+    </nav>
+
+    <div class="nav__right">
+      <button type="button" aria-label="검색">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      </button>
+      <a href="#" aria-label="내 계정">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+      </a>
+      <a class="mono" href="checkout.html" style="color:var(--text)">CART(0)</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="메뉴 열기">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__glow"></div>
+    <div class="hero__floor"></div>
+  </div>
+
+  <div class="wrap hero__in">
+    <div>
+      <h1>Find your<em>soft shade.</em></h1>
+      <p class="mono hero__meta">SOFT VORONOI LATTICE BEAR CHARM · 8 SHADES · EDITION 01</p>
+      <p class="hero__lede">말랑한 래티스 셸에 담은 파스텔 8셰이드. 오늘의 기분을 하나 골라 걸어 두세요.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="keyring-basic.html">Shop the shades <span aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="#lineup">See all 3 products</a>
+      </div>
+    </div>
+
+    <div class="hero__stage">
+      <!-- 턴테이블 루프. poster 가 정지컷과 같은 프레임(0도)이라 로드 전/실패 시 이음매가 없다.
+           투명 WebM 은 Chrome/Firefox/Edge 만 재생한다 — Safari 는 poster 정지컷으로 떨어지고,
+           그게 원래 이 사이트의 기본 디자인이라 깨져 보이지 않는다. -->
+      <video class="bear" id="hero-film" width="406" height="720"
+             poster="assets/img/bear-blush.webp"
+             data-src="assets/video/bear-blush-turntable.webm"
+             muted loop playsinline preload="none"
+             aria-label="CARIBEAR 래티스 베어 참 — 블러시 셰이드가 한 바퀴 도는 제품 영상">
+        <img class="bear" src="assets/img/bear-blush.webp" width="620" height="1100"
+             alt="CARIBEAR 래티스 베어 참 — 블러시">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LINEUP — 3개 상세페이지 입구 ================= -->
+<section class="section" id="lineup">
+  <div class="wrap">
+    <div class="moods__head">
+      <h2 class="section__title">Pick your <i>Caribear</i><i>.</i></h2>
+      <p class="mono">3 PRODUCTS · EDITION 01</p>
+    </div>
+
+    <ul class="lineup">
+      <li class="lineup__item">
+        <a class="lineup__card" href="keyring-basic.html">
+          <span class="shot lineup__shot">
+            <img class="bear" src="assets/img/bear-rose-three.webp" width="620" height="1100"
+                 loading="lazy" decoding="async" alt="로즈 래티스 베어 참 기본 사이즈">
+          </span>
+          <span class="lineup__cat">01 · BASIC KEYRING</span>
+          <span class="lineup__name">Lattice Bear Charm</span>
+          <span class="lineup__spec mono">65×65×95MM · 42G</span>
+          <span class="lineup__foot">
+            <b class="lineup__price">₩38,000</b>
+            <span class="more">VIEW DETAILS →</span>
+          </span>
+        </a>
+      </li>
+
+      <li class="lineup__item">
+        <a class="lineup__card" href="keyring-mini.html">
+          <span class="shot lineup__shot">
+            <img class="bear bear--wide" src="assets/img/lineup-size.webp" width="1069" height="1100"
+                 loading="lazy" decoding="async"
+                 alt="기본 사이즈와 미니 사이즈 비교 — 미니는 기본의 62% 크기">
+          </span>
+          <span class="lineup__cat">02 · MINI KEYRING</span>
+          <span class="lineup__name">Lattice Bear Mini</span>
+          <span class="lineup__spec mono">40×40×58MM · 12G · 62% SCALE</span>
+          <span class="lineup__foot">
+            <b class="lineup__price">₩24,000</b>
+            <span class="more">VIEW DETAILS →</span>
+          </span>
+        </a>
+      </li>
+
+      <li class="lineup__item">
+        <a class="lineup__card" href="sticker.html">
+          <span class="shot lineup__shot">
+            <img class="bear bear--wide" src="assets/img/sticker-sheet.webp" width="1400" height="1271"
+                 loading="lazy" decoding="async" alt="다이컷 스티커 6종">
+          </span>
+          <span class="lineup__cat">03 · STICKER PACK</span>
+          <span class="lineup__name">Die-Cut Sticker Pack</span>
+          <span class="lineup__spec mono">6 SHEETS · 50×70MM · WATERPROOF</span>
+          <span class="lineup__foot">
+            <b class="lineup__price">₩9,000</b>
+            <span class="more">VIEW DETAILS →</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 8 SHADES ================= -->
+<section class="section" id="moods">
+  <div class="wrap">
+    <div class="moods__head">
+      <h2 class="section__title"><i>8</i> shades<i>.</i> 1 shape<i>.</i></h2>
+    </div>
+    <ul class="moods" id="moods-list"></ul>
+  </div>
+</section>
+
+<!-- ================= JOURNAL ================= -->
+<section class="section" id="journal">
+  <div class="wrap">
+    <h2 class="section__title" style="margin-bottom:36px">Journal<i>.</i></h2>
+
+    <div class="journal">
+      <article class="post">
+        <a href="#">
+          <div class="shot shot--group post__shot">
+            <img class="bear" src="assets/img/sm/bear-mint-side.webp" style="--x:22%;--h:56%" loading="lazy" alt="">
+            <img class="bear" src="assets/img/sm/bear-lilac-three.webp" style="--x:78%;--h:54%" loading="lazy" alt="">
+            <img class="bear" src="assets/img/bear-blush.webp" style="--x:50%;--h:76%" loading="lazy"
+                 alt="민트·블러시·라일락 래티스 베어 3종 그룹컷">
+          </div>
+          <time datetime="2026-05-20">2026.05.20</time>
+          <h3>Edition 01: the 8 shades</h3>
+          <p>첫 에디션의 파스텔 8셰이드.<br>오늘의 당신은 어떤 색인가요?</p>
+          <span class="more">READ MORE →</span>
+        </a>
+      </article>
+
+      <article class="post">
+        <a href="#">
+          <div class="shot shot--group post__shot">
+            <img class="bear" src="assets/img/bear-butter-three.webp" style="--x:34%;--h:70%" loading="lazy"
+                 alt="버터 래티스 베어 제작 컷">
+            <img class="bear" src="assets/img/sm/bear-grey-side.webp" style="--x:70%;--h:50%;opacity:.7" loading="lazy" alt="">
+          </div>
+          <time datetime="2026-05-18">2026.05.18</time>
+          <h3>Inside the soft lattice</h3>
+          <p>보로노이 구조가 말랑함이 되기까지.<br>CARIBEAR 제작기.</p>
+          <span class="more">READ MORE →</span>
+        </a>
+      </article>
+
+      <article class="post">
+        <a href="#">
+          <div class="shot shot--group post__shot">
+            <img class="bear" src="assets/img/bear-peach.webp" style="--x:40%;--h:72%" loading="lazy"
+                 alt="피치·스카이 래티스 베어 착용 컷">
+            <img class="bear" src="assets/img/sm/bear-sky-side.webp" style="--x:66%;--h:60%" loading="lazy" alt="">
+          </div>
+          <time datetime="2026-05-16">2026.05.16</time>
+          <h3>Styled by you</h3>
+          <p>가방에, 파우치에, 손목에.<br>당신의 셰이드를 보여 주세요.</p>
+          <span class="more">READ MORE →</span>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="grid" style="align-items:start;row-gap:40px">
+      <div style="grid-column:1/-1">
+        <span class="footer__mark">CARIBEAR<i>.</i></span>
+      </div>
+    </div>
+
+    <div class="footer__cols" style="margin-top:32px">
+      <div>
+        <h4>SHOP</h4>
+        <ul>
+          <li><a href="index.html#lineup">ALL PRODUCTS</a></li>
+          <li><a href="keyring-basic.html">BASIC KEYRING</a></li>
+          <li><a href="keyring-mini.html">MINI KEYRING</a></li>
+          <li><a href="sticker.html">STICKER PACK</a></li>
+          <li><a href="#">GIFT CARD</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>HELP</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">SHIPPING</a></li>
+          <li><a href="#">RETURNS</a></li>
+          <li><a href="#">ORDER TRACKING</a></li>
+          <li><a href="#">CONTACT US</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>COMPANY</h4>
+        <ul>
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="#journal">JOURNAL</a></li>
+          <li><a href="#">CAREERS</a></li>
+          <li><a href="#">TERMS</a></li>
+          <li><a href="#">PRIVACY</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>FOLLOW</h4>
+        <ul>
+          <li><a href="#">INSTAGRAM</a></li>
+          <li><a href="#">TIKTOK</a></li>
+          <li><a href="#">YOUTUBE</a></li>
+          <li><a href="#">EMAIL SIGN UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__base">
+      <span class="mono">CARIBEAR® · SEOUL, KR · 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/caribear-site.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ---- 히어로 턴테이블 ----
+     2MB 짜리 루프라 아무 데서나 받게 두지 않는다. 아래 세 경우엔 src 를 아예 붙이지 않고
+     poster(정지컷)로 남긴다 — 원래 이 사이트의 기본 디자인이 정지컷이라 폴백이 곧 원안이다.
+       · 저모션 설정   · 1023px 이하(스테이지가 작아 회전이 잘 안 보인다)   · 데이터 절약 모드
+     자동재생은 markup 의 autoplay 대신 여기서 건다. 막히면 poster 로 남는다. */
+  var film = document.getElementById('hero-film');
+  if (film) {
+    var conn = navigator.connection;
+    var skip = window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+               !window.matchMedia('(min-width:1024px)').matches ||
+               !!(conn && conn.saveData);
+    if (!skip) {
+      /* src 를 넣자마자 play() 를 부르면 새 load 요청에 끊겨 AbortError 로 죽는다.
+         autoplay 를 켜 두고, 데이터가 들어온 뒤 한 번 더 밀어 준다. */
+      film.autoplay = true;
+      film.src = film.dataset.src;
+      film.addEventListener('loadeddata', function () {
+        var played = film.play();
+        if (played && played.catch) played.catch(function () { /* poster 유지 */ });
+      });
+    }
+  }
+
+  /* ---- 8 SHADES 리스트 — 컬러 정본(CARIBEAR.COLORS)에서 생성 ---- */
+  var list = document.getElementById('moods-list');
+  CARIBEAR.COLORS.forEach(function (c) {
+    var li = document.createElement('li');
+    li.className = 'mood';
+    li.innerHTML =
+      '<a href="keyring-basic.html?color=' + c.key + '">' +
+        '<span class="mood__disc">' +
+          '<img class="bear" src="' + CARIBEAR.shot(c.key, 'front', true) + '" ' +
+               'width="237" height="420" loading="lazy" decoding="async" ' +
+               'alt="' + c.label + ' 래티스 베어 키링">' +
+        '</span>' +
+        '<span class="mood__name">' + c.n + ' ' + c.label + '</span>' +
+        '<span class="mood__mood">' + c.mood + '</span>' +
+      '</a>';
+    list.appendChild(li);
+  });
+
+})();
+</script>
+</body>
+</html>
