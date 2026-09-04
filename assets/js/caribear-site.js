@@ -19,12 +19,11 @@
     { key:'rose',   n:'08', label:'ROSE',   mood:'TINT',  chip:'#F58BA5', bear:'#F58BA5' }
   ];
 
-  /* 2사이즈 — 형태는 같고 균등 배율만 다르다 (LANDING_KIT.md §9).
-     mini 는 basic 의 62% 선형 크기라 렌더도 같은 컷을 그대로 쓴다.
-     ※ 미니 치수·무게·가격은 아직 확정 전 자리값이다. 확정되면 여기만 고치면 된다. */
+  /* 2사이즈 — 형태는 같고 배율만 다르다 (LANDING_KIT.md §9). 렌더도 같은 컷을 그대로 쓴다.
+     무게는 베이직 실측(TPE 실리콘 밀도 기준 약 1.046e-4 g/mm³) 대비 부피비로 환산 + 하드웨어(링) 여분. */
   var SIZES = [
-    { key:'basic', label:'BASIC', dims:'65×65×95MM', weight:'42G', price:38000, was:45000 },
-    { key:'mini',  label:'MINI',  dims:'40×40×58MM', weight:'12G', price:24000, was:0 }
+    { key:'basic', label:'BASIC', dims:'45×45×85MM', weight:'20G', price:29000, was:36000 },
+    { key:'mini',  label:'MINI',  dims:'25×25×40MM', weight:'5G',  price:18000, was:0 }
   ];
 
   function sizeByKey(key) {

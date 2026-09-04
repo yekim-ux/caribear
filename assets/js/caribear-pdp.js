@@ -34,6 +34,23 @@
     var related  = document.getElementById('related');
     var qty = 1;
 
+    /* ---- SIZE COMPARE — 신용카드(85.6×54mm) 대비 실측 그래픽 ----
+       size.dims 는 "65×65×95MM" 형식. 정면 렌더 기준 폭(1번째 값)·높이(3번째 값)만 쓴다. */
+    var scCard = document.getElementById('sizecompare-card');
+    var scBear = document.getElementById('sizecompare-bear');
+    var scImg  = document.getElementById('sizecompare-img');
+    if (scCard && scBear && scImg) {
+      var dm = size.dims.match(/(\d+)×(\d+)×(\d+)/);
+      if (dm) {
+        var PXMM = 2.15; /* 1mm = 2.15px — 카드·곰 둘 다 이 축척으로 그린다 */
+        var bw = Number(dm[1]) * PXMM, bh = Number(dm[3]) * PXMM;
+        scCard.style.width  = (85.6 * PXMM) + 'px';
+        scCard.style.height = (53.98 * PXMM) + 'px';
+        scBear.style.width  = bw + 'px';
+        scBear.style.height = bh + 'px';
+      }
+    }
+
     /* initPDP 가 같은 DOM 에 두 번 불릴 수 있는 상황(SPA 라우터가 같은 페이지를 다시
        보여줄 때)을 대비해, 뭔가 채우기 시작하기 전에 컨테이너를 전부 비운다. 이 줄을
        각 컨테이너를 채우는 코드보다 뒤에 두면, 방금 이 실행에서 새로 넣은 것까지
@@ -111,6 +128,7 @@
       });
       main.src = CARIBEAR.shot(c.key, angle);
       main.alt = '래티스 베어 참 — ' + c.label;
+      if (scImg) scImg.src = CARIBEAR.shot(c.key, 'front', true);
       thumbs.forEach(function (t) {
         t.img.src = CARIBEAR.shot(c.key, t.ang, true);
         t.img.alt = c.label + ' ' + t.ang.toUpperCase() + ' 뷰';
