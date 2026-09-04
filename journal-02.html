@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inside the soft lattice — CARIBEAR® Journal</title>
+<meta name="description" content="보로노이 래티스 구조가 말랑함이 되기까지. CARIBEAR 제작기.">
+<meta name="theme-color" content="#FBF7F4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/caribear.css">
+<link rel="stylesheet" href="assets/css/caribear-pages.css">
+</head>
+<body>
+
+<a class="sr" href="#main">본문으로 건너뛰기</a>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="wordmark wordmark--accent" href="index.html">CARIBEAR<i>.</i></a>
+
+    <nav class="nav__links" id="nav-links" aria-label="주 메뉴">
+      <a href="index.html#lineup">SHOP</a><span>•</span>
+      <a href="keyring-basic.html">KEYRING</a><span>•</span>
+      <a href="index.html#moods">SHADES</a><span>•</span>
+      <a href="index.html#journal">JOURNAL</a>
+    </nav>
+
+    <div class="nav__right">
+      <a class="mono hide-sm" href="#" style="color:var(--text)">SEARCH</a>
+      <a class="mono hide-sm" href="#" style="color:var(--text)">ACCOUNT</a>
+      <a class="mono" href="checkout.html" style="color:var(--text)">CART(1)</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="메뉴 열기">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+  <nav class="crumbs" aria-label="위치">
+    <a href="index.html">HOME</a> / <a href="index.html#journal">JOURNAL</a> / <span>Inside the soft lattice</span>
+  </nav>
+
+  <article class="post-hero">
+    <div class="post-meta">
+      <span class="tag">MAKING OF</span>
+      <span>2026.05.18</span>
+      <span>4 MIN READ</span>
+    </div>
+    <h1>How Voronoi<br>becomes soft.</h1>
+    <p class="post-lede">겉보기엔 딱딱해 보이는 그물 구조가 왜 실제로는 말랑하게 눌리는지,
+      그 안을 들여다봤습니다.</p>
+  </article>
+
+  <figure class="post-figure post-figure--tall">
+    <div class="shot" style="aspect-ratio:1;background:var(--cream-2)">
+      <img src="assets/img/journal-macro-blush.webp" loading="lazy" decoding="async"
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"
+           alt="래티스 셀 구조 근접 클로즈업 — 블러시">
+    </div>
+    <figcaption>보로노이 셀 근접컷 · BLUSH</figcaption>
+  </figure>
+
+  <div class="prose">
+    <h2>속은 비어 있다</h2>
+    <p>래티스 베어는 안이 꽉 찬 피규어가 아닙니다. 자연에서 비누 거품이나 벌집이 최소한의
+      재료로 최대한의 면적을 감싸듯, 각 셀은 <strong>불규칙한 다각형</strong>으로 짜여
+      전체 부피의 상당 부분을 비워 둡니다. 그래서 같은 크기의 솔리드 피규어보다 가볍고,
+      쥐었을 때 셀 사이 벽이 순서대로 눌리면서 특유의 스퀴시한 촉감이 납니다.</p>
+
+    <h3>왜 하필 보로노이인가</h3>
+    <p>격자나 벌집 패턴은 규칙적이라 특정 방향으로만 눌립니다. 보로노이 분포는 셀 크기와
+      각도가 불규칙해서 <strong>어느 방향에서 쥐어도 비슷한 탄성</strong>을 냅니다.
+      손끝의 압력을 사면팔방으로 고르게 흘려보내는 구조라고 보시면 됩니다.</p>
+
+    <h2>360도로 보기</h2>
+    <p>사진 한 장으로는 두께감이 잘 안 잡혀서, 직접 돌려볼 수 있게 만들었습니다.
+      아래 이미지를 좌우로 드래그해 보세요.</p>
+  </div>
+
+  <figure class="post-figure">
+    <div class="spin-viewer" id="spin-viewer" style="aspect-ratio:406/720;max-width:406px;margin-inline:auto">
+      <img id="spin-img" src="assets/img/spin/spin-00.webp" draggable="false" alt="블러시 래티스 베어 360도 회전 뷰">
+      <span class="spin-hint" id="spin-hint">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M8 8L4 12l4 4M16 8l4 4-4 4M4 12h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        드래그해서 360° 돌려보기
+      </span>
+    </div>
+    <figcaption>360° 인터랙티브 뷰 · BLUSH</figcaption>
+  </figure>
+
+  <div class="prose">
+    <h2>네 방향에서</h2>
+  </div>
+
+  <figure class="post-figure post-figure--pair">
+    <div class="shot" style="aspect-ratio:3/4">
+      <img src="assets/img/bear-blush.webp" loading="lazy" decoding="async"
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain" alt="블러시 FRONT">
+    </div>
+    <div class="shot" style="aspect-ratio:3/4">
+      <img src="assets/img/bear-blush-three.webp" loading="lazy" decoding="async"
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain" alt="블러시 THREE-QUARTER">
+    </div>
+  </figure>
+  <figure class="post-figure post-figure--pair">
+    <div class="shot" style="aspect-ratio:3/4">
+      <img src="assets/img/bear-blush-side.webp" loading="lazy" decoding="async"
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain" alt="블러시 SIDE">
+    </div>
+    <div class="shot" style="aspect-ratio:3/4">
+      <img src="assets/img/bear-blush-back.webp" loading="lazy" decoding="async"
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain" alt="블러시 BACK">
+    </div>
+    <figcaption>FRONT · THREE-QUARTER · SIDE · BACK</figcaption>
+  </figure>
+
+  <nav class="post-nav">
+    <a href="journal-01.html"><small>← PREV</small><b>Edition 01: the 8 shades</b></a>
+    <a href="journal-03.html"><small>NEXT →</small><b>Styled by you</b></a>
+  </nav>
+
+</div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__cols">
+      <div>
+        <h4>SHOP</h4>
+        <ul>
+          <li><a href="index.html#lineup">ALL PRODUCTS</a></li>
+          <li><a href="keyring-basic.html">BASIC KEYRING</a></li>
+          <li><a href="keyring-mini.html">MINI KEYRING</a></li>
+          <li><a href="sticker.html">STICKER PACK</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>SHADES</h4>
+        <ul>
+          <li><a href="keyring-basic.html?color=grey">SHADE MISTY</a></li>
+          <li><a href="keyring-basic.html?color=blush">SHADE DEWY</a></li>
+          <li><a href="keyring-basic.html?color=peach">SHADE GLOW</a></li>
+          <li><a href="keyring-basic.html?color=mint">SHADE FRESH</a></li>
+          <li><a href="keyring-basic.html?color=lilac">SHADE AIRY</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ABOUT</h4>
+        <ul>
+          <li><a href="#">OUR STORY</a></li>
+          <li><a href="#">DESIGN PROCESS</a></li>
+          <li><a href="#">SUSTAINABILITY</a></li>
+          <li><a href="#">STOCKISTS</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>SUPPORT</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">SHIPPING</a></li>
+          <li><a href="#">RETURNS</a></li>
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__base">
+      <span class="mono">© 2026 CARIBEAR · SEOUL, KR</span>
+      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+        <div class="social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.3a6.5 6.5 0 100 13 6.5 6.5 0 000-13zm0 2.3a4.2 4.2 0 110 8.4 4.2 4.2 0 010-8.4zm6.8-2.6a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.5 3c.3 2.2 1.6 3.6 3.8 3.8v2.5c-1.4.1-2.7-.3-3.9-1.1v5.4c0 4.6-4.4 7.1-8.1 5.2-2.4-1.2-3.4-4.1-2.5-6.6.9-2.4 3.4-3.8 6-3.3v2.7c-1.7-.5-3.2.6-3.2 2.2 0 1.4 1.2 2.5 2.6 2.4 1.4-.1 2.4-1.2 2.4-2.7V3h2.9z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M3 3h4.2l4.4 6 5-6H20l-6.6 7.9L21 21h-4.2l-4.8-6.5L6.4 21H4l7-8.4L3 3z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 12s0-3.2-.4-4.7c-.2-.9-.9-1.5-1.7-1.7C18.4 5.2 12 5.2 12 5.2s-6.4 0-7.9.4c-.8.2-1.5.8-1.7 1.7C2 8.8 2 12 2 12s0 3.2.4 4.7c.2.9.9 1.5 1.7 1.7 1.5.4 7.9.4 7.9.4s6.4 0 7.9-.4c.8-.2 1.5-.8 1.7-1.7.4-1.5.4-4.7.4-4.7zM10 15.2V8.8l5.5 3.2-5.5 3.2z"/></svg></a>
+        </div>
+        <span class="footer__mark" style="font-size:clamp(2rem,5vw,3rem)">CARIBEAR<i>.</i></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/caribear-site.js"></script>
+<script>
+(function () {
+  'use strict';
+  /* ---- 360도 드래그 뷰어 ----
+     블렌더 턴테이블 영상(96프레임)에서 15도 간격으로 24장을 뽑아 스프라이트처럼 쓴다.
+     좌우 드래그량을 프레임 인덱스로 바꿔서 img.src 만 갈아 끼우는 가장 단순한 방식 —
+     캔버스나 WebGL 없이도 손끝 반응이 즉각적이다. */
+  var wrap = document.getElementById('spin-viewer');
+  if (!wrap) return;
+  var img = document.getElementById('spin-img');
+  var hint = document.getElementById('spin-hint');
+  var RESOLVE = window.global_RESOLVE || function (p) { return p; };
+  var N = 24;
+  var FRAMES = [];
+  for (var i = 0; i < N; i++) {
+    var n = i < 10 ? '0' + i : '' + i;
+    FRAMES.push(RESOLVE('assets/img/spin/spin-' + n + '.webp'));
+  }
+  FRAMES.forEach(function (src) { var pre = new Image(); pre.src = src; });
+
+  var idx = 0, dragging = false, startX = 0, startIdx = 0, moved = false;
+  var SENS = 6; /* 픽셀당 한 프레임 넘기는 민감도 — 낮을수록 빨리 돈다 */
+
+  function setFrame(n) {
+    idx = ((n % N) + N) % N;
+    img.src = FRAMES[idx];
+  }
+  function px(e) { return (e.touches ? e.touches[0] : e).clientX; }
+
+  function onDown(e) {
+    dragging = true; moved = false;
+    startX = px(e); startIdx = idx;
+    wrap.classList.add('dragging');
+  }
+  function onMove(e) {
+    if (!dragging) return;
+    var dx = px(e) - startX;
+    if (Math.abs(dx) > 3) moved = true;
+    setFrame(startIdx - Math.round(dx / SENS));
+    if (e.cancelable) e.preventDefault();
+  }
+  function onUp() {
+    if (!dragging) return;
+    dragging = false;
+    wrap.classList.remove('dragging');
+    if (moved && hint) hint.style.opacity = '0';
+  }
+
+  wrap.addEventListener('pointerdown', onDown);
+  window.addEventListener('pointermove', onMove, { passive: false });
+  window.addEventListener('pointerup', onUp);
+  wrap.addEventListener('touchstart', onDown, { passive: true });
+  window.addEventListener('touchmove', onMove, { passive: false });
+  window.addEventListener('touchend', onUp);
+})();
+</script>
+</body>
+</html>

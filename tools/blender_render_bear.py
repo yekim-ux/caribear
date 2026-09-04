@@ -6,7 +6,7 @@ Blender 안에서만 돈다. 쉘에서:
 
     "C:/Program Files/Blender Foundation/Blender 5.2/blender.exe" -b -P tools/blender_render_bear.py -- \
         --obj "C:/.../곰돌이키링_테스트출력.obj" --out assets/img \
-        --colors grey,blush,peach,butter,mint,sky,lilac,rose \
+        --colors black,red,orange,yellow,green,blue,purple,pink \
         --angles front,side,back,three --res 1600
 
 만드는 것:
@@ -15,24 +15,23 @@ Blender 안에서만 돈다. 쉘에서:
 
 원칙:
   - 형태는 손대지 않는다. 회전(카메라 각도)과 재질 색만 바꾼다.
-  - 배경 투명(film_transparent). 밝은 아이보리 사이트 위에 그대로 얹는다.
+  - 배경 투명(film_transparent). 다크 사이트 위에 그대로 얹는다.
   - 모든 컷이 같은 카메라·같은 조명이라 색끼리 흔들리지 않는다.
 """
 import argparse, math, os, sys
 import bpy
 from mathutils import Vector
 
-# 사이트 컬러 정본 (assets/js/caribear-site.js 의 COLORS 와 같은 값)
-# MILK LAB 무드 — 밝은 배경에 얹는 파스텔 8셰이드
+# 사이트 컬러 정본 (assets/js/caribear-site.js 와 같은 값)
 PRODUCT = {
-    'grey':   (0xCF, 0xCA, 0xC8),
-    'blush':  (0xFF, 0xC2, 0xCE),
-    'peach':  (0xFF, 0xC4, 0x9B),
-    'butter': (0xFF, 0xE4, 0x9A),
-    'mint':   (0xA9, 0xE0, 0xC8),
-    'sky':    (0xA9, 0xD2, 0xF2),
-    'lilac':  (0xCB, 0xBC, 0xF0),
-    'rose':   (0xF5, 0x8B, 0xA5),
+    'black':  (0x0A, 0x0A, 0x0A),
+    'red':    (0xFF, 0x3B, 0x30),
+    'orange': (0xFF, 0x8A, 0x00),
+    'yellow': (0xFF, 0xD6, 0x0A),
+    'green':  (0x34, 0xC7, 0x59),
+    'blue':   (0x0A, 0x84, 0xFF),
+    'purple': (0x8B, 0x5C, 0xF6),
+    'pink':   (0xFF, 0x2E, 0x88),
 }
 
 # 카메라가 도는 각도 (오브젝트를 Z축으로 돌린다)
@@ -131,8 +130,8 @@ def make_material(ob):
 
 def set_color(bsdf, rgb):
     """베이스 컬러는 정본 값 그대로 쓴다.
-       배경과 가까운 옅은 색을 억지로 어둡게 내리지 말 것 - 밝은 배경에서의
-       분리는 베이스가 아니라 컨테이너 배경 톤과 CSS 드롭섀도가 만든다."""
+       검정을 회색으로 띄우면 실버처럼 보인다 - 다크 배경에서의 가독성은
+       베이스가 아니라 스튜디오의 림 라이트(스페큘러)가 만든다."""
     lin = [srgb_to_linear(c) for c in rgb]
     bsdf.inputs['Base Color'].default_value = (lin[0], lin[1], lin[2], 1.0)
 
@@ -150,15 +149,13 @@ def area_light(name, loc, rot, size, energy, color=(1, 1, 1)):
 
 
 def build_studio():
-    """밝은(아이보리) 배경에 얹을 파스텔 제품컷.
-       다크 무드 때보다 키를 낮추고 필/바운스를 올린다 — 파스텔은 강한 키에서
-       바로 흰색으로 클리핑돼 색이 날아간다. 림은 흰색에 가깝게 아주 약하게만."""
+    """제품 사진과 같은 결: 정면 위 키라이트 + 옆 필 + 뒤 림"""
     R = math.radians
-    area_light('key',  (-2.6, -3.4, 3.2), (R(52), 0, R(-38)), 5.0, 380)
-    area_light('fill', ( 3.4, -2.6, 0.8), (R(80), 0, R(52)),  5.0, 240)
-    area_light('rim',  ( 0.0,  3.6, 2.6), (R(126), 0, 0),     5.0, 190,
-               color=(1.0, 0.94, 0.96))         # 거의 흰색 · 블러시 쪽으로 아주 살짝
-    area_light('under',( 0.0, -1.6, -2.6),(R(-40), 0, 0),     4.0, 110)
+    area_light('key',  (-2.6, -3.4, 3.2), (R(52), 0, R(-38)), 5.0, 900)
+    area_light('fill', ( 3.4, -2.6, 0.8), (R(80), 0, R(52)),  5.0, 300)
+    area_light('rim',  ( 0.0,  3.6, 2.6), (R(126), 0, 0),     5.0, 700,
+               color=(1.0, 0.78, 0.90))          # 사이트 핑크 쪽으로 살짝
+    area_light('under',( 0.0, -1.6, -2.6),(R(-40), 0, 0),     4.0, 120)
 
 
 def build_camera(ob, margin):

@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Checkout — CARIBEAR®</title>
+<title>CHECKOUT — CARIBEAR®</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#FBF7F4">
+<meta name="theme-color" content="#0A0A0A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/caribear.css">
 <link rel="stylesheet" href="assets/css/caribear-pages.css">
 </head>
@@ -19,7 +19,7 @@
 <!-- ================= 체크아웃 헤더 ================= -->
 <header class="nav">
   <div class="wrap nav__in">
-    <a class="wordmark wordmark--accent" href="index.html">CARIBEAR<i>.</i></a>
+    <a class="wordmark wordmark--pink" href="index.html">CARIBEAR<i>.</i></a>
 
     <nav class="steps" aria-label="주문 단계">
       <a href="#">CART</a>
@@ -36,7 +36,7 @@
 <main id="main">
 <div class="wrap">
 
-  <h1 class="checkout__title">Checkout</h1>
+  <h1 class="checkout__title">CHECKOUT</h1>
 
   <div class="checkout">
 
@@ -55,7 +55,7 @@
 
         <label class="check">
           <input type="checkbox" name="subscribe" checked>
-          새 셰이드 소식 받아보기
+          Subscribe to drops &amp; news
         </label>
       </section>
 
@@ -175,7 +175,7 @@
       </section>
 
       <button class="btn btn--primary btn--lg btn--block" type="submit" style="margin-top:32px">
-        Place order · <span id="submit-total">₩117,000</span>
+        PLACE ORDER · <span id="submit-total">₩117,000</span>
       </button>
       <p class="note" id="form-note">데모 페이지입니다 — 어떤 값도 전송되거나 저장되지 않습니다.</p>
     </form>
@@ -186,22 +186,22 @@
 
       <div class="line">
         <div class="line__shot">
-          <img class="bear" src="assets/img/sm/bear-grey.webp" width="237" height="420" loading="lazy" alt="그레이 래티스 베어 참">
+          <img class="bear" src="assets/img/sm/bear-black.webp" width="237" height="420" loading="lazy" alt="블랙 래티스 베어 키링">
         </div>
         <div>
-          <h3>LATTICE BEAR CHARM</h3>
-          <small>GREY / 01</small>
+          <h3>LATTICE BEAR KEYRING</h3>
+          <small>BLACK / 01</small>
           <p class="line__qty"><span>QTY <b>1</b></span> <b>₩38,000</b></p>
         </div>
       </div>
 
       <div class="line">
         <div class="line__shot">
-          <img class="bear" src="assets/img/sm/bear-rose-three.webp" width="237" height="420" loading="lazy" alt="로즈 래티스 베어 참">
+          <img class="bear" src="assets/img/sm/bear-pink-three.webp" width="237" height="420" loading="lazy" alt="핑크 래티스 베어 키링">
         </div>
         <div>
-          <h3>LATTICE BEAR CHARM</h3>
-          <small>ROSE / 08</small>
+          <h3>LATTICE BEAR KEYRING</h3>
+          <small>PINK / 08</small>
           <small class="limited">(LIMITED)</small>
           <p class="line__qty"><span>QTY <b>1</b></span> <b>₩42,000</b></p>
         </div>
@@ -209,11 +209,11 @@
 
       <div class="line">
         <div class="line__shot">
-          <img class="bear" src="assets/img/sm/bear-sky-side.webp" width="237" height="420" loading="lazy" alt="스카이 래티스 베어 참">
+          <img class="bear" src="assets/img/sm/bear-blue-side.webp" width="237" height="420" loading="lazy" alt="블루 래티스 베어 키링">
         </div>
         <div>
-          <h3>LATTICE BEAR CHARM</h3>
-          <small>SKY / 06</small>
+          <h3>LATTICE BEAR KEYRING</h3>
+          <small>BLUE / 06</small>
           <p class="line__qty"><span>QTY <b>1</b></span> <b>₩38,000</b></p>
         </div>
       </div>
@@ -310,7 +310,7 @@
   });
 
   /* 프로모션 코드 */
-  var CODES = { WELCOME10: 4000, EDITION01: 6000 };
+  var CODES = { WELCOME10: 4000, DROP001: 6000 };
   document.getElementById('promo-apply').addEventListener('click', function () {
     var input = document.getElementById('promo');
     var code = input.value.trim().toUpperCase();

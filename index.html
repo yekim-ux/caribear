@@ -46,35 +46,26 @@
 <main id="main">
 
 <!-- ================= HERO ================= -->
-<section class="hero">
+<section class="hero hero--nebula">
   <div class="hero__bg" aria-hidden="true">
-    <div class="hero__glow"></div>
+    <div class="hero__nebula"></div>
     <div class="hero__floor"></div>
   </div>
 
+  <!-- 무중력 수조 — 8셰이드가 히어로 전체를 떠다닌다. 잡기(드래그)·클릭(스퀴시) 인터랙션은
+       assets/js 없이 이 페이지 스크립트에서 직접 만든다(전용 곰이라 재사용 여지가 없다). -->
+  <div class="zerog" id="zerog" aria-hidden="true"></div>
+
   <div class="wrap hero__in">
-    <div>
+    <div class="hero__panel">
       <h1>Find your<em>soft shade.</em></h1>
       <p class="mono hero__meta">SOFT VORONOI LATTICE BEAR CHARM · 8 SHADES · EDITION 01</p>
       <p class="hero__lede">말랑한 래티스 셸에 담은 파스텔 8셰이드. 오늘의 기분을 하나 골라 걸어 두세요.</p>
+      <p class="mono hero__hint">✦ 곰돌이를 눌러보거나 끌어보세요</p>
       <div class="hero__cta">
         <a class="btn btn--primary" href="keyring-basic.html">Shop the shades <span aria-hidden="true">→</span></a>
         <a class="btn btn--ghost" href="#lineup">See all 3 products</a>
       </div>
-    </div>
-
-    <div class="hero__stage">
-      <!-- 턴테이블 루프. poster 가 정지컷과 같은 프레임(0도)이라 로드 전/실패 시 이음매가 없다.
-           투명 WebM 은 Chrome/Firefox/Edge 만 재생한다 — Safari 는 poster 정지컷으로 떨어지고,
-           그게 원래 이 사이트의 기본 디자인이라 깨져 보이지 않는다. -->
-      <video class="bear" id="hero-film" width="406" height="720"
-             poster="assets/img/bear-blush.webp"
-             data-src="assets/video/bear-blush-turntable.webm"
-             muted loop playsinline preload="none"
-             aria-label="CARIBEAR 래티스 베어 참 — 블러시 셰이드가 한 바퀴 도는 제품 영상">
-        <img class="bear" src="assets/img/bear-blush.webp" width="620" height="1100"
-             alt="CARIBEAR 래티스 베어 참 — 블러시">
-      </video>
     </div>
   </div>
 </section>
@@ -157,12 +148,11 @@
 
     <div class="journal">
       <article class="post">
-        <a href="#">
-          <div class="shot shot--group post__shot">
-            <img class="bear" src="assets/img/sm/bear-mint-side.webp" style="--x:22%;--h:56%" loading="lazy" alt="">
-            <img class="bear" src="assets/img/sm/bear-lilac-three.webp" style="--x:78%;--h:54%" loading="lazy" alt="">
-            <img class="bear" src="assets/img/bear-blush.webp" style="--x:50%;--h:76%" loading="lazy"
-                 alt="민트·블러시·라일락 래티스 베어 3종 그룹컷">
+        <a href="journal-01.html">
+          <div class="shot post__shot">
+            <img src="assets/img/journal-shades-row.webp" loading="lazy" decoding="async"
+                 style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 65%"
+                 alt="파스텔 8셰이드 래티스 베어 한 줄 정렬">
           </div>
           <time datetime="2026-05-20">2026.05.20</time>
           <h3>Edition 01: the 8 shades</h3>
@@ -172,11 +162,11 @@
       </article>
 
       <article class="post">
-        <a href="#">
-          <div class="shot shot--group post__shot">
-            <img class="bear" src="assets/img/bear-butter-three.webp" style="--x:34%;--h:70%" loading="lazy"
-                 alt="버터 래티스 베어 제작 컷">
-            <img class="bear" src="assets/img/sm/bear-grey-side.webp" style="--x:70%;--h:50%;opacity:.7" loading="lazy" alt="">
+        <a href="journal-02.html">
+          <div class="shot post__shot">
+            <img src="assets/img/journal-macro-blush.webp" loading="lazy" decoding="async"
+                 style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"
+                 alt="래티스 셀 구조 근접 클로즈업 — 블러시">
           </div>
           <time datetime="2026-05-18">2026.05.18</time>
           <h3>Inside the soft lattice</h3>
@@ -186,11 +176,11 @@
       </article>
 
       <article class="post">
-        <a href="#">
-          <div class="shot shot--group post__shot">
-            <img class="bear" src="assets/img/bear-peach.webp" style="--x:40%;--h:72%" loading="lazy"
-                 alt="피치·스카이 래티스 베어 착용 컷">
-            <img class="bear" src="assets/img/sm/bear-sky-side.webp" style="--x:66%;--h:60%" loading="lazy" alt="">
+        <a href="journal-03.html">
+          <div class="shot post__shot">
+            <img src="assets/img/styled/styled-01.webp" loading="lazy" decoding="async"
+                 style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%"
+                 alt="벚꽃 연못에 놓인 래티스 베어 참">
           </div>
           <time datetime="2026-05-16">2026.05.16</time>
           <h3>Styled by you</h3>
@@ -266,26 +256,145 @@
 (function () {
   'use strict';
 
-  /* ---- 히어로 턴테이블 ----
-     2MB 짜리 루프라 아무 데서나 받게 두지 않는다. 아래 세 경우엔 src 를 아예 붙이지 않고
-     poster(정지컷)로 남긴다 — 원래 이 사이트의 기본 디자인이 정지컷이라 폴백이 곧 원안이다.
-       · 저모션 설정   · 1023px 이하(스테이지가 작아 회전이 잘 안 보인다)   · 데이터 절약 모드
-     자동재생은 markup 의 autoplay 대신 여기서 건다. 막히면 poster 로 남는다. */
-  var film = document.getElementById('hero-film');
-  if (film) {
-    var conn = navigator.connection;
-    var skip = window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-               !window.matchMedia('(min-width:1024px)').matches ||
-               !!(conn && conn.saveData);
-    if (!skip) {
-      /* src 를 넣자마자 play() 를 부르면 새 load 요청에 끊겨 AbortError 로 죽는다.
-         autoplay 를 켜 두고, 데이터가 들어온 뒤 한 번 더 밀어 준다. */
-      film.autoplay = true;
-      film.src = film.dataset.src;
-      film.addEventListener('loadeddata', function () {
-        var played = film.play();
-        if (played && played.catch) played.catch(function () { /* poster 유지 */ });
+  /* ---- 히어로 무중력 수조 ----
+     8셰이드를 히어로 전체에 흩어 놓고 각자 다른 속도로 떠다니게 한다. 벽에 닿으면 튕기고,
+     이따금 방향을 미세하게 틀어서(브라운 운동 흉내) 진짜 무중력처럼 보이게 한다.
+     인터랙션은 세 가지:
+       · 눌렀다 바로 떼면(이동량이 작으면)  -> 스퀴시(말랑하게 눌렸다 돌아옴)
+       · 누른 채 끌면                      -> 커서를 그대로 따라간다(드래그)
+       · 끌다가 놓으면                     -> 놓기 직전 이동 속도를 그대로 물려받아 흘러간다(던지기) */
+  var zerog = document.getElementById('zerog');
+  if (zerog) {
+    var SIZES = [92, 232, 68, 268, 118, 196, 80, 150]; /* 셰이드마다 다른 크기 — 편차를 크게 */
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var bears = CARIBEAR.COLORS.map(function (c, i) {
+      var el = document.createElement('div');
+      el.className = 'zerog__bear';
+      el.style.setProperty('--size', SIZES[i % SIZES.length] + 'px');
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
+      el.setAttribute('aria-label', c.label + ' 래티스 베어 — 눌러서 만져보기');
+      var img = document.createElement('img');
+      img.className = 'zerog__img';
+      img.src = CARIBEAR.shot(c.key, 'front', true);
+      img.alt = '';
+      img.draggable = false;
+      el.appendChild(img);
+      zerog.appendChild(el);
+      return { el: el, img: img, size: SIZES[i % SIZES.length] };
+    });
+
+    var W = 0, H = 0;
+    function measure() {
+      var r = zerog.getBoundingClientRect();
+      W = r.width; H = r.height;
+    }
+
+    function place(b) {
+      var maxX = Math.max(0, W - b.size), maxY = Math.max(0, H - b.size);
+      b.x = Math.min(b.x, maxX); b.y = Math.min(b.y, maxY);
+    }
+
+    function layout() {
+      var wasReady = W > 0;
+      measure();
+      bears.forEach(function (b) {
+        if (!wasReady) {
+          b.x = Math.random() * Math.max(1, W - b.size);
+          b.y = Math.random() * Math.max(1, H - b.size);
+          var angle = Math.random() * Math.PI * 2;
+          var speed = 0.05 + Math.random() * 0.07;
+          b.vx = Math.cos(angle) * speed;
+          b.vy = Math.sin(angle) * speed;
+          b.phase = Math.random() * Math.PI * 2;
+          b.rot = (Math.random() - 0.5) * 14;
+        } else {
+          place(b);
+        }
+        apply(b);
       });
+    }
+
+    function apply(b) {
+      var sway = reduceMotion ? 0 : Math.sin(Date.now() / 1400 + b.phase) * 5;
+      b.el.style.transform = 'translate3d(' + b.x + 'px,' + b.y + 'px,0) rotate(' + (b.rot + sway) + 'deg)';
+    }
+
+    layout();
+    window.addEventListener('resize', layout);
+
+    /* ---- 유영 애니메이션 ---- */
+    if (!reduceMotion) {
+      (function tick() {
+        bears.forEach(function (b) {
+          if (b.held) return;
+          b.vx += (Math.random() - 0.5) * 0.006;
+          b.vy += (Math.random() - 0.5) * 0.006;
+          var maxV = 0.16;
+          b.vx = Math.max(-maxV, Math.min(maxV, b.vx));
+          b.vy = Math.max(-maxV, Math.min(maxV, b.vy));
+          b.x += b.vx * 16;
+          b.y += b.vy * 16;
+          var maxX = Math.max(0, W - b.size), maxY = Math.max(0, H - b.size);
+          if (b.x < 0) { b.x = 0; b.vx = Math.abs(b.vx); }
+          if (b.x > maxX) { b.x = maxX; b.vx = -Math.abs(b.vx); }
+          if (b.y < 0) { b.y = 0; b.vy = Math.abs(b.vy); }
+          if (b.y > maxY) { b.y = maxY; b.vy = -Math.abs(b.vy); }
+          apply(b);
+        });
+        requestAnimationFrame(tick);
+      })();
+    }
+
+    /* ---- 잡기 / 드래그 / 클릭 ---- */
+    var active = null;
+    bears.forEach(function (b) {
+      b.el.addEventListener('pointerdown', function (e) {
+        active = b;
+        b.held = true; b.dragging = false;
+        b.startX = e.clientX; b.startY = e.clientY;
+        b.grabDX = e.clientX - b.x; b.grabDY = e.clientY - b.y;
+        b.px = b.x; b.py = b.y;
+        b.el.classList.add('zerog__bear--held');
+        try { b.el.setPointerCapture(e.pointerId); } catch (err) { /* 무시 */ }
+      });
+      b.el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); squish(b); }
+      });
+    });
+
+    window.addEventListener('pointermove', function (e) {
+      if (!active) return;
+      var dx = e.clientX - active.startX, dy = e.clientY - active.startY;
+      if (Math.abs(dx) > 4 || Math.abs(dy) > 4) active.dragging = true;
+      if (active.dragging) {
+        active.px = active.x; active.py = active.y;
+        var maxX = Math.max(0, W - active.size), maxY = Math.max(0, H - active.size);
+        active.x = Math.max(0, Math.min(maxX, e.clientX - active.grabDX));
+        active.y = Math.max(0, Math.min(maxY, e.clientY - active.grabDY));
+        apply(active);
+      }
+    });
+
+    window.addEventListener('pointerup', function () {
+      if (!active) return;
+      var b = active;
+      b.el.classList.remove('zerog__bear--held');
+      if (!b.dragging) {
+        squish(b);
+      } else {
+        b.vx = (b.x - b.px) * 0.05;
+        b.vy = (b.y - b.py) * 0.05;
+      }
+      b.held = false;
+      active = null;
+    });
+
+    function squish(b) {
+      b.img.classList.remove('zerog__img--squish');
+      void b.img.offsetWidth; /* 강제 리플로우 — 같은 애니메이션을 다시 재생하기 위해 */
+      b.img.classList.add('zerog__img--squish');
     }
   }
 
