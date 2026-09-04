@@ -129,6 +129,10 @@
       main.src = CARIBEAR.shot(c.key, angle);
       main.alt = '래티스 베어 참 — ' + c.label;
       if (scImg) scImg.src = CARIBEAR.shot(c.key, 'front', true);
+      var storyImg2 = document.getElementById('story-img-2');
+      var storyImg3 = document.getElementById('story-img-3');
+      if (storyImg2) storyImg2.src = CARIBEAR.shot(c.key, 'side', true);
+      if (storyImg3) storyImg3.src = CARIBEAR.shot(c.key, 'back', true);
       thumbs.forEach(function (t) {
         t.img.src = CARIBEAR.shot(c.key, t.ang, true);
         t.img.alt = c.label + ' ' + t.ang.toUpperCase() + ' 뷰';
